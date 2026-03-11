@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- Thêm AOS library cho scroll animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Thêm Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./assets/images/linkicon.png" type="image/x-icon" />
   </head>
-  <body>
+  <body class="dark-mode">
     <!-- Header -->
     <header>
       <nav>
@@ -17,12 +19,16 @@
         <ul class="nav-links">
           <li><a href="#home" data-vi="Trang Chủ" data-en="Home">Trang Chủ</a></li>
           <li><a href="#about" data-vi="Về Tôi" data-en="About">Về Tôi</a></li>
+          <li><a href="#playground" data-vi="Thực Tế" data-en="Playground">Thực Tế</a></li>
           <li><a href="#projects" data-vi="Dự Án" data-en="Projects">Dự Án</a></li>
           <li><a href="#skills" data-vi="Kỹ Năng" data-en="Skills">Kỹ Năng</a></li>
+          <li><a href="#experience" data-vi="Kinh Nghiệm" data-en="Experience">Kinh Nghiệm</a></li>
           <li><a href="#contact" data-vi="Liên Hệ" data-en="Contact">Liên Hệ</a></li>
           <div class="nav-controls">
             <button class="language-toggle" onclick="toggleLanguage()">EN</button>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="theme-toggle" aria-label="Toggle Theme" onclick="toggleTheme()">
+              <i class="bx bx-sun"></i>
+            </button>
           </div>
         </ul>
       </nav>
@@ -54,7 +60,7 @@
           data-aos="fade-up"
           data-aos-delay="400"
           data-aos-duration="800"
-          onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})"
+          onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })"
           data-vi="Xem Dự Án"
           data-en="View Projects"
         >
@@ -65,7 +71,7 @@
           data-aos="fade-up"
           data-aos-delay="600"
           data-aos-duration="800"
-          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+          onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
           data-vi="Liên Hệ Tôi"
           data-en="Contact Me"
         >
@@ -80,34 +86,37 @@
       <div class="about-content">
         <div class="about-text" data-aos="fade-right" data-aos-duration="800">
           <p
-            data-vi="Tôi là một Front-end Developer đam mê công nghệ, yêu thích việc tạo ra những giao diện web hiện đại, trực quan và thân thiện với người dùng. Tôi luôn chú trọng đến trải nghiệm người dùng và khả năng tương tác mượt mà trong từng chi tiết của sản phẩm."
-            data-en="I'm a Front-end Developer passionate about technology and creating modern, intuitive, and user-friendly web interfaces. I always focus on delivering seamless user experiences and smooth interactions in every detail of my work."
+            data-vi="Tôi là một Front-end Developer với niềm đam mê xây dựng các ứng dụng web hiện đại, trực quan và thân thiện với người dùng. Tôi tập trung vào việc tạo ra giao diện mượt mà, dễ sử dụng và tối ưu trải nghiệm người dùng trong các sản phẩm web."
+            data-en="I am a Front-end Developer passionate about building modern, intuitive, and user-friendly web applications. I focus on creating smooth interfaces and delivering optimized user experiences in web products."
           >
-            Tôi là một Front-end Developer đam mê công nghệ, yêu thích việc tạo ra những giao diện web hiện đại, trực
-            quan và thân thiện với người dùng. Tôi luôn chú trọng đến trải nghiệm người dùng và khả năng tương tác mượt
-            mà trong từng chi tiết của sản phẩm.
+            Tôi là một Front-end Developer với niềm đam mê xây dựng các ứng dụng web hiện đại, trực quan và thân thiện
+            với người dùng. Tôi tập trung vào việc tạo ra giao diện mượt mà, dễ sử dụng và tối ưu trải nghiệm người dùng
+            trong các sản phẩm web.
           </p>
+
           <p
-            data-vi="Tôi thường làm việc với HTML, CSS, JavaScript, ReactJS, Ant Design, Tailwind CSS và RESTful API để phát triển các ứng dụng web hiệu quả. Tôi có khả năng kết hợp giữa thiết kế và lập trình để mang đến những sản phẩm vừa thẩm mỹ vừa tối ưu."
-            data-en="I mainly work with HTML, CSS, JavaScript, ReactJS, Ant Design, Tailwind CSS, and RESTful APIs to build efficient and scalable web applications. I'm capable of combining design and development to deliver solutions that are both visually appealing and technically optimized."
+            data-vi="Tôi có kinh nghiệm phát triển giao diện với các công nghệ như ReactJS, JavaScript, TypeScript, Tailwind CSS, Ant Design và tích hợp RESTful API để xây dựng các ứng dụng web hiệu quả và dễ mở rộng."
+            data-en="I have experience developing user interfaces using technologies such as ReactJS, JavaScript, TypeScript, Tailwind CSS, Ant Design, and integrating RESTful APIs to build efficient and scalable web applications."
           >
-            Tôi thường làm việc với HTML, CSS, JavaScript, ReactJS, Ant Design, Tailwind CSS và RESTful API để phát
-            triển các ứng dụng web hiệu quả. Tôi có khả năng kết hợp giữa thiết kế và lập trình để mang đến những sản
-            phẩm vừa thẩm mỹ vừa tối ưu.
+            Tôi có kinh nghiệm phát triển giao diện với các công nghệ như ReactJS, JavaScript, TypeScript, Tailwind CSS,
+            Ant Design và tích hợp RESTful API để xây dựng các ứng dụng web hiệu quả và dễ mở rộng.
           </p>
+
           <p
-            data-vi="Bên cạnh việc tập trung vào Front-end, tôi đang mở rộng kỹ năng sang mảng Backend với các công nghệ như Node.js, Express, MongoDB và MySQL, hướng đến mục tiêu trở thành Full-stack Developer trong tương lai gần."
-            data-en="Alongside my focus on Front-end development, I'm expanding my skills in Backend technologies such as Node.js, Express, MongoDB, and MySQL, aiming to become a Full-stack Developer in the near future."
+            data-vi="Ngoài Front-end, tôi cũng có kinh nghiệm làm việc với Node.js, Express và MongoDB để xây dựng API và phát triển các dự án web full-stack. Điều này giúp tôi hiểu rõ hơn về cách hệ thống hoạt động từ frontend đến backend."
+            data-en="Besides Front-end development, I also have experience working with Node.js, Express, and MongoDB to build APIs and develop full-stack web projects, helping me better understand the complete web application workflow."
           >
-            Bên cạnh việc tập trung vào Front-end, tôi đang mở rộng kỹ năng sang mảng Backend với các công nghệ như
-            Node.js, Express, MongoDB và MySQL, hướng đến mục tiêu trở thành Full-stack Developer trong tương lai gần.
+            Ngoài Front-end, tôi cũng có kinh nghiệm làm việc với Node.js, Express và MongoDB để xây dựng API và phát
+            triển các dự án web full-stack. Điều này giúp tôi hiểu rõ hơn về cách hệ thống hoạt động từ frontend đến
+            backend.
           </p>
+
           <p
-            data-vi="Tôi luôn coi trọng chất lượng, hiệu suất và khả năng mở rộng trong từng dự án. Ngoài ra, tôi đam mê tìm hiểu UI/UX design, không ngừng học hỏi để mang đến những sản phẩm hoàn thiện, sáng tạo và có giá trị thực tế cao."
-            data-en="I always value quality, performance, and scalability in every project. I'm also passionate about UI/UX design, continuously learning to create well-crafted, innovative, and impactful digital products."
+            data-vi="Tôi luôn chủ động học hỏi công nghệ mới, cải thiện kỹ năng lập trình và hướng tới mục tiêu phát triển các sản phẩm web chất lượng, hiệu quả và có giá trị thực tế."
+            data-en="I continuously learn new technologies and improve my development skills, aiming to build high-quality, efficient, and impactful web applications."
           >
-            Tôi luôn coi trọng chất lượng, hiệu suất và khả năng mở rộng trong từng dự án. Ngoài ra, tôi đam mê tìm hiểu
-            UI/UX design, không ngừng học hỏi để mang đến những sản phẩm hoàn thiện, sáng tạo và có giá trị thực tế cao.
+            Tôi luôn chủ động học hỏi công nghệ mới, cải thiện kỹ năng lập trình và hướng tới mục tiêu phát triển các
+            sản phẩm web chất lượng, hiệu quả và có giá trị thực tế.
           </p>
 
           <div class="cv-section" data-aos="zoom-in" data-aos-delay="200">
@@ -120,7 +129,7 @@
               Xem chi tiết kinh nghiệm và kỹ năng của tôi
             </p>
             <a
-              href="./assets/files/INTERN_FRONTEND_DEVELOPER_NGUYỄN_MINH_HUYÊN.pdf"
+              href="./assets/files/NGUYEN-MINH-HUYEN-CV.pdf"
               download
               class="cv-download-btn"
               data-vi="Tải CV (PDF)"
@@ -131,6 +140,179 @@
         </div>
         <div class="about-image" data-aos="fade-left" data-aos-duration="800">
           <img src="./assets/images/anh1.jpg" alt="Profile Picture" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Playground & Live Code Section -->
+    <section class="playground" id="playground">
+      <div class="playground-container">
+        <h2 class="section-title" data-aos="fade-up" data-vi="Góc Thực Tế (Playground)" data-en="Live Playground">
+          Góc Thực Tế (Playground)
+        </h2>
+        <p
+          class="playground-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-vi="Trải nghiệm hiệu ứng 3D thực tế và khả năng viết code CSS trực tiếp để tương tác với UI."
+          data-en="Experience real 3D effects and the ability to write live CSS to interact with the UI."
+        >
+          Trải nghiệm hiệu ứng 3D thực tế và khả năng viết code CSS trực tiếp để tương tác với UI.
+        </p>
+
+        <div class="playground-grid">
+          <!-- 3D Card Area -->
+          <div class="playground-card-area" data-aos="fade-right" data-aos-delay="200">
+            <h3 data-vi="Thẻ 3D Tương Tác" data-en="Interactive 3D Card">
+              <i class="bx bx-cube"></i> Thẻ 3D Tương Tác
+            </h3>
+            <div class="card-3d-wrapper" id="card3dWrapper">
+              <div class="card-3d-inner" id="card3dInner">
+                <div class="card-3d-content">
+                  <div class="card-avatar">
+                    <img src="./assets/images/anh1.jpg" alt="Avatar" />
+                  </div>
+                  <h4 data-vi="Hi! Tôi là Lập trình viên" data-en="Hi! I am a Developer">Hi! Tôi là Lập trình viên</h4>
+                  <p
+                    data-vi="Thẻ này phản ứng với chuột của bạn và code CSS bên cạnh."
+                    data-en="This card reacts to your mouse and the CSS code beside."
+                  >
+                    Thẻ này phản ứng với chuột của bạn và code CSS bên cạnh.
+                  </p>
+                  <button class="card-btn" data-vi="Chi Tiết" data-en="Details">Chi Tiết</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live CSS Editor Area -->
+          <div class="playground-editor-area" data-aos="fade-left" data-aos-delay="300">
+            <h3 data-vi="Live Editor (Thử gõ CSS vào đây)" data-en="Live Editor (Type CSS here)">
+              <i class="bx bx-code-block"></i> Live Editor (Thử gõ CSS vào đây)
+            </h3>
+            <div class="editor-window">
+              <div class="editor-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">style.css</span>
+              </div>
+              <textarea
+                id="cssEditor"
+                spellcheck="false"
+                data-vi="/* Thử thay đổi các giá trị dưới đây */
+#card3dInner {
+  background: linear-gradient(135deg, #FF6B6B, #556270);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-avatar img {
+  border: 4px solid #ffffff;
+}
+
+.card-btn {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 30px;
+}"
+                data-en="/* Try changing the values below */
+#card3dInner {
+  background: linear-gradient(135deg, #FF6B6B, #556270);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-avatar img {
+  border: 4px solid #ffffff;
+}
+
+.card-btn {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 30px;
+}"
+              >
+/* Thử thay đổi các giá trị dưới đây */
+#card3dInner {
+  background: linear-gradient(135deg, #FF6B6B, #556270);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-avatar img {
+  border: 4px solid #ffffff;
+}
+
+.card-btn {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 30px;
+}
+              </textarea>
+            </div>
+
+            <!-- CSS Templates Area -->
+            <div class="playground-templates" style="margin-top: 1.5rem" data-aos="fade-up" data-aos-delay="400">
+              <h4
+                data-vi="Gợi Ý Giao Diện Khác Tự Động"
+                data-en="Try Auto Themes"
+                style="margin-bottom: 0.8rem; font-size: 1rem"
+              >
+                <i class="bx bx-palette"></i> Gợi Ý Giao Diện
+              </h4>
+              <div class="template-buttons" style="display: flex; gap: 0.8rem; flex-wrap: wrap">
+                <button
+                  class="template-btn"
+                  onclick="applyTemplate('default')"
+                  style="
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: #333;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: 0.3s;
+                  "
+                >
+                  Mặc định
+                </button>
+                <button
+                  class="template-btn"
+                  onclick="applyTemplate('neon')"
+                  style="
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: #1a0033;
+                    border: 1px solid #ff00ff;
+                    color: #0ff;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    box-shadow: 0 0 8px #f0f;
+                  "
+                >
+                  Cyberpunk Neon
+                </button>
+                <button
+                  class="template-btn"
+                  onclick="applyTemplate('glass')"
+                  style="
+                    padding: 0.5rem 1rem;
+                    border-radius: 6px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    color: var(--text-primary);
+                    cursor: pointer;
+                    transition: 0.3s;
+                    border: 1px solid var(--border);
+                  "
+                >
+                  Glassmorphism
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -349,7 +531,7 @@
             <div class="tech-item" data-aos="flip-left" data-aos-delay="300">
               <svg
                 role="img"
-                fill="#000000"
+                fill="currentColor"
                 width="50"
                 height="50"
                 viewBox="0 0 24 24"
@@ -420,7 +602,7 @@
             <div class="tech-item" data-aos="flip-left" data-aos-delay="50">
               <svg
                 role="img"
-                fill="#000000"
+                fill="currentColor"
                 width="50"
                 height="50"
                 viewBox="0 0 24 24"
@@ -505,25 +687,13 @@
               <div class="tech-name">Git</div>
             </div>
             <div class="tech-item" data-aos="flip-left" data-aos-delay="50">
-              <svg
-                role="img"
-                fill="#000000"
-                width="50"
-                height="50"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Render</title>
-                <path
-                  d="M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75"
-                />
-              </svg>
+              <i class="bx bxl-docker" style="font-size: 50px; color: #2496ed"></i>
               <div class="tech-name">Docker</div>
             </div>
             <div class="tech-item" data-aos="flip-left" data-aos-delay="100">
               <svg
                 role="img"
-                fill="#000000"
+                fill="currentColor"
                 width="50"
                 height="50"
                 viewBox="0 0 24 24"
@@ -573,7 +743,7 @@
       <!-- Soft Skills -->
       <div class="skills-grid" style="margin-top: 3rem">
         <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
-          <div class="skill-icon">💡</div>
+          <div class="skill-icon"><i class="bx bx-bulb" style="color: #ffd700"></i></div>
           <h3 data-vi="Problem Solving" data-en="Problem Solving">Problem Solving</h3>
           <p
             data-vi="Giải quyết các vấn đề phức tạp một cách sáng tạo và hiệu quả"
@@ -584,7 +754,7 @@
         </div>
 
         <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="skill-icon">🤝</div>
+          <div class="skill-icon"><i class="bx bx-group" style="color: #4caf50"></i></div>
           <h3 data-vi="Teamwork" data-en="Teamwork">Teamwork</h3>
           <p
             data-vi="Làm việc tốt trong nhóm và giao tiếp hiệu quả với các thành viên"
@@ -595,7 +765,7 @@
         </div>
 
         <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="skill-icon">📚</div>
+          <div class="skill-icon"><i class="bx bx-book-open" style="color: #2196f3"></i></div>
           <h3 data-vi="Continuous Learning" data-en="Continuous Learning">Continuous Learning</h3>
           <p
             data-vi="Luôn cập nhật với các công nghệ mới và xu hướng trong ngành"
@@ -606,7 +776,7 @@
         </div>
 
         <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="skill-icon">🎯</div>
+          <div class="skill-icon"><i class="bx bx-target-lock" style="color: #f44336"></i></div>
           <h3 data-vi="Attention to Detail" data-en="Attention to Detail">Attention to Detail</h3>
           <p
             data-vi="Chú ý đến từng chi tiết để đảm bảo chất lượng cao nhất"
@@ -614,6 +784,84 @@
           >
             Chú ý đến từng chi tiết để đảm bảo chất lượng cao nhất
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="experience-container">
+        <h2 class="section-title" data-aos="fade-up" data-vi="Kinh Nghiệm & Học Vấn" data-en="Experience & Education">
+          Kinh Nghiệm & Học Vấn
+        </h2>
+
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 - Hiện tại</div>
+            <div class="timeline-content">
+              <h3 data-vi="Nghiên cứu & Học tập Front-end" data-en="Front-end Learning & Researching">
+                Nghiên cứu & Học tập Front-end
+              </h3>
+              <div
+                class="timeline-company"
+                data-vi="Tự học & Tham gia khóa học online"
+                data-en="Self-taught & Online Courses"
+              >
+                Tự học & Tham gia khóa học online
+              </div>
+              <p
+                data-vi="Nghiên cứu và thực hành chuyên sâu lập trình giao diện với ReactJS, TypeScript và hệ sinh thái thư viện đa dạng. Quản lý source code với Git và tự tin làm việc với Restful API."
+                data-en="Deeply researched and practiced building UI with ReactJS, TypeScript and its ecosystem. Excellent at version control with Git and handling Restful APIs."
+              >
+                Nghiên cứu và thực hành chuyên sâu lập trình giao diện với ReactJS, TypeScript và hệ sinh thái thư viện
+                đa dạng. Quản lý source code với Git và tự tin làm việc với Restful API.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2021 - 2025 (Dự kiến)</div>
+            <div class="timeline-content">
+              <h3 data-vi="Sinh viên Đại học" data-en="University Student">Sinh viên Đại học</h3>
+              <div
+                class="timeline-company"
+                data-vi="Chuyên ngành Công nghệ thông tin"
+                data-en="Major in Information Technology"
+              >
+                Chuyên ngành Công nghệ thông tin
+              </div>
+              <p
+                data-vi="Xây dựng nền tảng tư duy lập trình vững chắc, cấu trúc dữ liệu và thuật toán cơ bản. Làm quen đa dạng các công nghệ và hoàn thiện nhiều bài tập dựa trên mô hình thực tế."
+                data-en="Built a solid foundation in programming logic, data structures, and algorithms. Explored various technologies and completed many practical-based projects."
+              >
+                Xây dựng nền tảng tư duy lập trình vững chắc, cấu trúc dữ liệu và thuật toán cơ bản. Làm quen đa dạng
+                các công nghệ và hoàn thiện nhiều bài tập dựa trên mô hình thực tế.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Trước 2021</div>
+            <div class="timeline-content">
+              <h3 data-vi="Bắt đầu Hành trình" data-en="Start of the Journey">Bắt đầu Hành trình</h3>
+              <div class="timeline-company" data-vi="Học sinh Phổ thông" data-en="High School Student">
+                Học sinh Phổ thông
+              </div>
+              <p
+                data-vi="Bắt đầu làm quen với máy tính, tìm hiểu kiến thức cơ bản về Internet, HTML & CSS. Nuôi dưỡng ngọn lửa đam mê và quyết định theo đuổi sự nghiệp Lập trình viên Web."
+                data-en="Familiarizing with computers, basics of the Internet, HTML & CSS. Nurtured the passion and decided to pursue a Web Developer career."
+              >
+                Bắt đầu làm quen với máy tính, tìm hiểu kiến thức cơ bản về Internet, HTML & CSS. Nuôi dưỡng ngọn lửa
+                đam mê và quyết định theo đuổi sự nghiệp Lập trình viên Web.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -637,20 +885,7 @@
             title="Email"
             aria-label="Liên hệ qua Email"
           >
-            <svg
-              role="img"
-              class="contact-link__icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <title>Gmail</title>
-              <path
-                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
-              />
-            </svg>
+            <i class="bx bxs-envelope contact-link__icon"></i>
           </a>
           <a
             href="https://www.facebook.com/huyen2706"
@@ -658,20 +893,7 @@
             title="Facebook"
             aria-label="Liên hệ qua Facebook"
           >
-            <svg
-              role="img"
-              class="contact-link__icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <title>Facebook</title>
-              <path
-                d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
-              />
-            </svg>
+            <i class="bx bxl-facebook-circle contact-link__icon"></i>
           </a>
           <a
             href="https://github.com/kinghatrung"
@@ -679,20 +901,7 @@
             title="GitHub"
             aria-label="Liên hệ qua GitHub"
           >
-            <svg
-              role="img"
-              class="contact-link__icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <title>GitHub</title>
-              <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-              />
-            </svg>
+            <i class="bx bxl-github contact-link__icon"></i>
           </a>
         </div>
         <button
@@ -701,7 +910,7 @@
           data-aos-delay="300"
           data-vi="Gửi Email"
           data-en="Send Email"
-          onclick="window.location.href='mailto:email@example.com'"
+          onclick="window.location.href = 'mailto:email@example.com'"
         >
           Gửi Email
         </button>
@@ -760,10 +969,10 @@
 
         if (body.classList.contains("dark-mode")) {
           localStorage.setItem("theme", "dark");
-          button.textContent = "☀️";
+          button.innerHTML = "<i class='bx bx-sun'></i>";
         } else {
           localStorage.setItem("theme", "light");
-          button.textContent = "🌙";
+          button.innerHTML = "<i class='bx bx-moon'></i>";
         }
       }
 
@@ -771,9 +980,13 @@
         const savedTheme = localStorage.getItem("theme");
         const button = document.querySelector(".theme-toggle");
 
-        if (savedTheme === "dark") {
+        if (savedTheme === "light") {
+          document.body.classList.remove("dark-mode");
+          button.innerHTML = "<i class='bx bx-moon'></i>";
+        } else {
+          // Default or saved as dark
           document.body.classList.add("dark-mode");
-          button.textContent = "☀️";
+          button.innerHTML = "<i class='bx bx-sun'></i>";
         }
 
         updateLanguage();
@@ -791,6 +1004,149 @@
           }
         });
       });
+
+      // --- 3D Tilt Effect Logic ---
+      const wrapper = document.getElementById("card3dWrapper");
+      const inner = document.getElementById("card3dInner");
+
+      if (wrapper && inner) {
+        wrapper.addEventListener("mousemove", (e) => {
+          const rect = wrapper.getBoundingClientRect();
+          const x = e.clientX - rect.left; // X position within the element.
+          const y = e.clientY - rect.top; // Y position within the element.
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -15; // Max rotation 15deg
+          const rotateY = ((x - centerX) / centerX) * 15;
+
+          inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+
+        wrapper.addEventListener("mouseleave", () => {
+          inner.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+      }
+
+      // --- Live CSS Editor Logic ---
+      const cssEditor = document.getElementById("cssEditor");
+      // Create a style element to hold the live CSS
+      const liveStyle = document.createElement("style");
+      liveStyle.id = "playgroundLiveStyle";
+      document.head.appendChild(liveStyle);
+
+      const updateLiveCSS = () => {
+        if (cssEditor) {
+          liveStyle.textContent = cssEditor.value;
+        }
+      };
+
+      if (cssEditor) {
+        // Initial application
+        updateLiveCSS();
+        // Update on input
+        cssEditor.addEventListener("input", updateLiveCSS);
+
+        // Handle Tab key for indentation
+        cssEditor.addEventListener("keydown", function (e) {
+          if (e.key === "Tab") {
+            e.preventDefault();
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+            this.value = this.value.substring(0, start) + "  " + this.value.substring(end);
+            this.selectionStart = this.selectionEnd = start + 2;
+            updateLiveCSS();
+          }
+        });
+      }
+
+      // --- Live CSS Templates ---
+      const templates = {
+        default: `/* Thử thay đổi các giá trị dưới đây */
+#card3dInner {
+  background: linear-gradient(135deg, #FF6B6B, #556270);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-avatar img {
+  border: 4px solid #ffffff;
+}
+
+.card-btn {
+  background-color: #ffffff;
+  color: #333333;
+  border-radius: 30px;
+}`,
+        neon: `/* Cyberpunk Neon Style */
+#card3dInner {
+  background: #0f0f0f;
+  border: 2px solid #0ff;
+  border-radius: 0;
+  box-shadow: 0 0 20px #0ff, inset 0 0 10px #0ff;
+}
+
+.card-avatar img {
+  border: 4px solid #f0f;
+  border-radius: 0;
+  box-shadow: 0 0 15px #f0f;
+}
+
+.card-btn {
+  background-color: transparent;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 0;
+  box-shadow: 0 0 10px #0ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}`,
+        glass: `/* Glassmorphism Style */
+#card3dInner {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.card-avatar img {
+  border: 3px solid rgba(255,255,255,0.5);
+}
+
+.card-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+}`,
+      };
+
+      window.applyTemplate = (type) => {
+        if (cssEditor && templates[type]) {
+          cssEditor.value = templates[type];
+          updateLiveCSS();
+        }
+      };
+
+      // Patch the language update to also reset textarea based on language
+      const originalUpdateLanguage = updateLanguage;
+      updateLanguage = function () {
+        originalUpdateLanguage();
+        if (cssEditor) {
+          const viText = cssEditor.getAttribute("data-vi");
+          const enText = cssEditor.getAttribute("data-en");
+          const currText = cssEditor.value.trim();
+          // Only swap if user hasn't heavily modified it, or just strictly swap the placeholder comments
+          if (currText === viText.trim() || currText === enText.trim()) {
+            cssEditor.value = currentLanguage === "vi" ? viText : enText;
+            updateLiveCSS();
+          }
+        }
+      };
     </script>
   </body>
 </html>

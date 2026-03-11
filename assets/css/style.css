@@ -28,7 +28,9 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   line-height: 1.6;
 }
 
@@ -353,6 +355,192 @@ nav {
   transform: scale(1.1);
 }
 
+/* Playground Section */
+.playground {
+  padding: 5rem 2rem;
+  background-color: var(--bg-primary); /* Changed to primary to contrast with About/Projects */
+}
+
+.playground-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.playground-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+  margin-bottom: 4rem;
+}
+
+/* 3D Card Area */
+.playground-card-area h3,
+.playground-editor-area h3,
+.github-stats-area h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.playground-card-area h3 i,
+.playground-editor-area h3 i,
+.github-stats-area h3 i {
+  color: var(--accent);
+  font-size: 1.8rem;
+}
+
+.card-3d-wrapper {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px; /* Crucial for 3D effect */
+}
+
+.card-3d-inner {
+  width: 300px;
+  height: 350px;
+  /* Mọi hiệu ứng màu sắc, viền đều do code trong Live Editor quản lý */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  transition:
+    transform 0.1s,
+    background 0.3s,
+    box-shadow 0.3s,
+    border-radius 0.3s; /* Mở rộng transition để css live mượt mà */
+  transform-style: preserve-3d;
+}
+
+/* Base styles for the inner elements that can be styled */
+.card-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+  transform: translateZ(50px); /* Pushes element outwards */
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s;
+}
+
+.card-3d-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  transform: translateZ(40px);
+}
+
+.card-3d-content p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  transform: translateZ(30px);
+  color: #fff;
+}
+
+.card-btn {
+  padding: 0.6rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transform: translateZ(60px);
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    color 0.3s,
+    border-radius 0.3s,
+    box-shadow 0.3s;
+}
+
+.card-btn:hover {
+  transform: translateZ(60px) scale(1.05);
+}
+
+/* Live Editor Area */
+.editor-window {
+  width: 100%;
+  height: 400px;
+  background-color: #1e1e1e; /* VS Code dark theme look */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+
+.editor-header {
+  background-color: #2d2d2d;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #111;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red {
+  background-color: #ff5f56;
+}
+.dot.yellow {
+  background-color: #ffbd2e;
+}
+.dot.green {
+  background-color: #27c93f;
+}
+
+.filename {
+  margin-left: auto;
+  margin-right: auto;
+  color: #858585;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+#cssEditor {
+  flex-grow: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #d4d4d4; /* syntax-like color */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  padding: 1.5rem;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+}
+
+#cssEditor:focus {
+  outline: none;
+}
+
 /* Projects Section */
 .projects {
   padding: 5rem 2rem;
@@ -558,6 +746,125 @@ nav {
   font-size: 0.95rem;
 }
 
+/* Experience / Timeline Section */
+.experience {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 100%;
+  width: 4px;
+  background-color: var(--border);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 3rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  border: 4px solid var(--bg-primary);
+  box-shadow: 0 0 0 3px var(--border);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--bg-secondary);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.timeline-content {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-secondary);
+  transform: rotate(45deg);
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: var(--accent);
+  transform: translateX(5px);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.timeline-item:hover .timeline-content::before {
+  border-bottom-color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.timeline-company {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
 /* Contact Section */
 .contact {
   padding: 5rem 2rem;
@@ -602,23 +909,29 @@ nav {
   cursor: pointer;
 }
 
-/* SVG icon styling - now controlled by CSS */
+/* Icon styling - now controlled by CSS */
 .contact-link__icon {
-  fill: currentColor;
-  transition: fill 0.3s ease;
+  color: currentColor;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
 }
 
 /* Individual color classes for each social link */
 .contact-link--email .contact-link__icon {
-  fill: #ea4335;
+  color: #ea4335;
 }
 
 .contact-link--facebook .contact-link__icon {
-  fill: #0866ff;
+  color: #0866ff;
 }
 
 .contact-link--github .contact-link__icon {
-  fill: #181717;
+  color: #181717;
+}
+
+/* Dark mode fix for github icon */
+body.dark-mode .contact-link--github .contact-link__icon {
+  color: #ffffff;
 }
 
 .contact-link:hover {
@@ -627,9 +940,9 @@ nav {
   transform: rotate(360deg);
 }
 
-/* SVG color changes on hover to match background */
+/* Icon color changes on hover to match background */
 .contact-link:hover .contact-link__icon {
-  fill: var(--bg-primary);
+  color: var(--bg-primary) !important;
 }
 
 /* Improved responsive design for mobile */
@@ -801,6 +1114,45 @@ footer {
     gap: 0.8rem;
   }
 
+  .experience {
+    padding: 3rem 1rem;
+  }
+
+  .timeline::before {
+    left: 14px;
+  }
+
+  .timeline-dot {
+    left: 6px;
+  }
+
+  .timeline-item {
+    padding-left: 45px;
+  }
+
+  .timeline-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .timeline-content::before {
+    display: none;
+  }
+
+  /* Responsive refinements for Playground */
+  .playground {
+    padding: 3rem 1rem;
+  }
+
+  .playground-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .editor-window,
+  .card-3d-wrapper {
+    height: 350px;
+  }
+
   .tech-item {
     padding: 1rem;
   }
@@ -932,79 +1284,5 @@ footer {
   }
 
   .project-info h3 {
-    font-size: 1.1rem;
-  }
-
-  .project-info p {
-    font-size: 0.9rem;
-  }
-
-  .skills {
-    padding: 2rem 1rem;
-  }
-
-  .skill-category h3 {
-    font-size: 1.2rem;
-  }
-
-  .tech-stack {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-  }
-
-  .tech-item {
-    padding: 0.8rem;
-  }
-
-  .tech-icon {
-    font-size: 1.3rem;
-  }
-
-  .tech-name {
-    font-size: 0.75rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .skill-card {
-    padding: 1rem;
-  }
-
-  .skill-icon {
-    font-size: 1.8rem;
-  }
-
-  .skill-card h3 {
-    font-size: 1rem;
-  }
-
-  .skill-card p {
-    font-size: 0.85rem;
-  }
-
-  .contact {
-    padding: 2rem 1rem;
-  }
-
-  .contact p {
-    font-size: 0.95rem;
-  }
-
-  .contact-links {
-    gap: 0.8rem;
-  }
-
-  .contact-link {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-  }
-
-  footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.85rem;
   }
 }
