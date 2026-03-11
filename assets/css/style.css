@@ -152,44 +152,29 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  /* background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); Tắt gradient tĩnh để lộ nền 3D Vanta JS */
   position: relative;
   overflow: hidden;
 }
 
+/* Thêm lớp overlay nhẹ để chữ dễ đọc hơn trên nền 3D nếu cần */
 .hero::before {
   content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--shadow) 0%, transparent 70%);
-  border-radius: 50%;
-  top: -100px;
-  right: -100px;
-  animation: float 6s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Làm tối nền một chút */
+  z-index: 0;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, var(--shadow) 0%, transparent 70%);
-  border-radius: 50%;
-  bottom: -50px;
-  left: -50px;
-  animation: float 8s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(30px);
-  }
-}
+/* Xoá các khối tròn mờ floating tĩnh cũ vì đã có 3D background xịn hơn */
+/* 
+Xoá .hero::before cũ
+Xoá .hero::after cũ 
+Xoá @keyframes float
+*/
 
 .hero-content {
   text-align: center;
@@ -213,13 +198,16 @@ nav {
   margin-bottom: 1rem;
   font-weight: 800;
   letter-spacing: -1px;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Thêm viền bóng cho chữ để rõ hơn trên nền 3D */
+  color: #ffffff; /* Luôn giữ màu trắng nổi bật trên nền Vanta tối ráp */
 }
 
 .hero p {
   font-size: 1.3rem;
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.9);
   margin-bottom: 2rem;
   max-width: 600px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .cta-button {
@@ -668,8 +656,45 @@ nav {
   margin: 0 auto;
 }
 
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
 .skills-container {
   margin-top: 3rem;
+}
+
+/* 3D Skill Sphere Styling */
+.skills-sphere-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  position: sticky;
+  top: 100px; /* Sticks the sphere when scrolling through long skills list */
+}
+
+.tagcloud {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.tagcloud--item {
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+
+.tagcloud--item:hover {
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; /* Hiệu ứng phát sáng khi di chuột */
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .skill-category {
@@ -709,6 +734,31 @@ nav {
 .tech-name {
   font-weight: 600;
   color: var(--text-primary);
+}
+
+/* 3D Tag Cloud Sphere Styles */
+.tagcloud {
+  display: inline-block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Styling for the tags inside the cloud */
+.tagcloud--item {
+  color: var(--accent);
+  transition: color 0.2s ease, transform 0.2s;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.tagcloud--item:hover {
+  color: #ff00ff; /* Neon highlight when hover */
+  transform: scale(1.2);
+}
+
+body.dark-mode .tagcloud--item:hover {
+  color: #0ff;
 }
 
 .skills-grid {
@@ -1108,6 +1158,16 @@ footer {
   .skills {
     padding: 3rem 1rem;
   }
+  
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .skills-sphere-container {
+    min-height: 350px;
+    position: static;
+  }
 
   .tech-stack {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -1282,7 +1342,160 @@ footer {
   .project-info {
     padding: 1rem;
   }
+}
 
-  .project-info h3 {
+/* ========================================= */
+/* --- MỚI: TÍNH NĂNG TƯƠNG TÁC (WOW FEATURES) --- */
+/* ========================================= */
+
+/* 1. Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  width: 0%;
+  z-index: 10000;
+  transition: width 0.1s ease;
+}
+
+/* 2. Magic Cursor */
+@media (min-width: 769px) { /* Chỉ áp dụng cho màn lớn có dùng chuột */
+  body, a, button, .project-card, .tech-item, .tagcloud--item, .language-toggle, .theme-toggle, input, textarea {
+    cursor: none !important;
+  }
+}
+
+.magic-cursor {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  transition: width 0.2s, height 0.2s, background-color 0.2s, top 0.2s, left 0.2s, opacity 0.3s;
+  /* Tắt ở Mobile */
+  display: none;
+}
+
+.magic-cursor-follower {
+  position: fixed;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.2s, height 0.2s, border-color 0.2s, top 0.2s, left 0.2s, background-color 0.2s, opacity 0.3s;
+  /* Tắt ở Mobile */
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .magic-cursor, .magic-cursor-follower {
+    display: block;
+  }
+}
+
+/* Magic Cursor Hover Active States */
+.magic-cursor.active {
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+}
+
+.magic-cursor-follower.active {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  background-color: rgba(255, 0, 255, 0.1);
+  border-color: #00ffff;
+  border-width: 2px;
+}
+body.dark-mode .magic-cursor-follower.active {
+  background-color: rgba(0, 255, 255, 0.1);
+  border-color: #ff00ff;
+}
+
+/* 3. Typewriter Cursor */
+.typewriter-cursor {
+  display: inline-block;
+  font-weight: 300;
+  color: var(--accent);
+  margin-left: 5px;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 4. Currently Doing Widget */
+.currently-doing-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s;
+}
+
+.widget-icon {
+  font-size: 1.5rem;
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.widget-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.widget-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Responsive Widget */
+@media (max-width: 768px) {
+  .currently-doing-widget {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+}
+@media (max-width: 480px) {
+  .currently-doing-widget {
+    display: none; /* Ẩn Widget ở điện thoại đỡ rối màn hình */
   }
 }
