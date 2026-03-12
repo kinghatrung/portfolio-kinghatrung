@@ -778,7 +778,7 @@
 
     <!-- Currently Doing Widget -->
     <div class="currently-doing-widget" id="currentlyDoing" data-aos="fade-left" data-aos-delay="500">
-      <div class="widget-icon">☕</div>
+      <div class="widget-icon" id="widgetIcon"><i class='bx bx-coffee'></i></div>
       <div class="widget-content">
         <span class="widget-label" data-vi="Trạng thái" data-en="Status">Trạng thái</span>
         <span class="widget-text" id="widgetText" data-vi="Cần một cốc cà phê..." data-en="Need a cup of coffee...">Cần một cốc cà phê...</span>
@@ -1143,16 +1143,16 @@
 
       // --- Mới: Currently Doing Widget Logic ---
       const widgetStatesVi = [
-        { icon: "☕", text: "Cần một cốc cà phê..." },
-        { icon: "💻", text: "Đang code giao diện..." },
-        { icon: "🎧", text: "Nghe nhạc Lofi chill..." },
-        { icon: "🚀", text: "Sẵn sàng làm việc!" }
+        { icon: "bx-coffee", text: "Cần một cốc cà phê..." },
+        { icon: "bx-code-alt", text: "Đang code giao diện..." },
+        { icon: "bx-headphone", text: "Nghe nhạc Lofi chill..." },
+        { icon: "bx-rocket", text: "Sẵn sàng làm việc!" }
       ];
       const widgetStatesEn = [
-        { icon: "☕", text: "Need a cup of coffee..." },
-        { icon: "💻", text: "Coding UI..." },
-        { icon: "🎧", text: "Listening to Lofi..." },
-        { icon: "🚀", text: "Ready to work!" }
+        { icon: "bx-coffee", text: "Need a cup of coffee..." },
+        { icon: "bx-code-alt", text: "Coding UI..." },
+        { icon: "bx-headphone", text: "Listening to Lofi..." },
+        { icon: "bx-rocket", text: "Ready to work!" }
       ];
       let widgetIndex = 0;
       setInterval(() => {
@@ -1166,7 +1166,8 @@
         setTimeout(() => {
           widgetIndex = (widgetIndex + 1) % widgetStatesVi.length;
           const states = currentLanguage === 'vi' ? widgetStatesVi : widgetStatesEn;
-          document.querySelector('.widget-icon').textContent = states[widgetIndex].icon;
+          const iconEl = document.querySelector('.widget-icon');
+          iconEl.innerHTML = `<i class='bx ${states[widgetIndex].icon}'></i>`;
           const textEl = document.getElementById('widgetText');
           textEl.textContent = states[widgetIndex].text;
           
